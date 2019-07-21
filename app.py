@@ -26,10 +26,10 @@ def add_numbers_post():
 	  	return render_template('add_numbers.html')
 	  elif request.method == 'POST':
   	      print(request.form['text'].split())
-  	      total = 1
+  	      total = 1 	# had to change this to '1' else would alway be zero x*0 = 0 always...so cannot start at 0.
   	      try:
   	      	for str_num in request.form['text'].split():
-  	      		total *= int(str_num)
+  	      		total *= int(str_num) # JH - modded from original to use multiplication instead of addition
   	      	return render_template('add_numbers.html', result=str(total))
   	      except ValueError:
   	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
